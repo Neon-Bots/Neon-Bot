@@ -147,30 +147,6 @@ async def 도움말(ctx):
     await ctx.respond(embed=embed,view=view)
 
 
-@bot.slash_command(description="도움말을 검색합니다")
-async def 뉴스(ctx):
-    client_id = "f7yRdGlm28Jo74DHds9E"
-    client_secret = "ec6clmXVBJ"
-    encText = urllib.parse.quote("Nyaneo")
-    url = "https://openapi.naver.com/v1/search/news.json?display=5&query=" + encText  # JSON 결과
-    request = urllib.request.Request(url)
-    request.add_header("X-Naver-Client-Id", client_id)
-    request.add_header("X-Naver-Client-Secret", client_secret)
-    response = urllib.request.urlopen(request)
-    rescode = response.getcode()
-    if (rescode == 200):
-        response_body = response.read()
-        print(response_body.decode('utf-8'))
-        res = eval(response_body.decode('utf-8'))
-        total = res["total"]
-        items = res["items"]
-        all = ""
-        for i in range(5):
-            st = f'제목 : {items[i]["title"]}\n링크 : {items[i]["link"]}\n설명 : {items[i]["description"]}\n날짜 : {items[i]["pubDate"]}\n\n'
-
-            all = all + st
-        print(all)
-
 
 
 
