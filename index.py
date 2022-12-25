@@ -13,7 +13,7 @@ import googletrans
 from mojang import API
 translator = googletrans.Translator()
 youtube = build('youtube', 'v3', 
-                developerKey='AIzaSyDLlay6_8BDIxq5gjhwbIqnqRsY5HTHZKE')
+                developerKey='ss')
 bot = commands.Bot(command_prefix = '+',intents=discord.Intents.all())
 token = '토큰'
 
